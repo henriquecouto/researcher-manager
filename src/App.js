@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 
 import Description from "./components/Description";
+import Search from "./components/Search";
+
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -22,6 +24,9 @@ function App() {
       <Grid container className={classes.root}>
         <Grid item xs={11}>
           <Description />
+        </Grid>
+        <Grid item xs={11}>
+          <Search/>
         </Grid>
       </Grid>
     </>

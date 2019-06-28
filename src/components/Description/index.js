@@ -7,7 +7,7 @@ import HomeSearchIcon from "../../assets/HomeSearchIcon.png";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 10),
+    padding: theme.spacing(10, 10),
     margin: theme.spacing(3, 2),
     maxWidth: 1200
   }
