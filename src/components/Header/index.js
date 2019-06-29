@@ -33,7 +33,7 @@ export default function Header(props) {
                 <PersonIcon />
                 Área do Pesquisador
               </Button>
-              <Button onClick={log("buscarPesquisador")}>
+              <Button onClick={() => document.location.href = '#search'}>
                 <SearchIcon />
                 Buscar Pesquisador
               </Button>
@@ -41,6 +41,6 @@ export default function Header(props) {
           </Grid>
         </Toolbar>
       </AppBar>
-    </div>
+    </div >
   );
 }

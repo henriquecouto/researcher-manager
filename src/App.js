@@ -24,7 +24,7 @@ function App() {
         <Grid item >
           <Description />
         </Grid>
-        <Grid item >
+        <Grid item id='search'>
           <Search />
         </Grid>
       </Grid>
