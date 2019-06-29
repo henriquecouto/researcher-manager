@@ -6,13 +6,12 @@ import { Grid } from "@material-ui/core";
 import Description from "./components/Description";
 import Search from "./components/Search";
 
-
 const useStyle = makeStyles(theme => ({
   root: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center"
-  }
+    margin: 'auto',
+    marginTop: 70,
+    maxWidth: 1500,
+  },
 }));
 
 function App() {
@@ -21,12 +20,12 @@ function App() {
   return (
     <>
       <Header title="Cadastro de Pesquisadores" />
-      <Grid container className={classes.root}>
-        <Grid item xs={11}>
+      <Grid container className={classes.root} direction='column' justify='center'>
+        <Grid item >
           <Description />
         </Grid>
-        <Grid item xs={11}>
-          <Search/>
+        <Grid item >
+          <Search />
         </Grid>
       </Grid>
     </>

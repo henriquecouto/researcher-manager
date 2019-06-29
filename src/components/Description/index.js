@@ -9,51 +9,48 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(10, 10),
     margin: theme.spacing(3, 2),
-    maxWidth: 1200
-  }
+  },
 }));
 
 export default function PaperSheet() {
   const classes = useStyles();
 
   return (
-    <div>
-      <Paper className={classes.root}>
-        <Grid container direction="column" spacing={6}>
-          <Grid item>
-            <Grid container spacing={6} alignItems="center">
-              <Grid item>
-                <img src={HomeSearchIcon} alt="" />
-              </Grid>
-              <Grid item xs>
-                <Typography variant="h5" component="h3" align="justify">
-                  Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é
-                  um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
-                  In elementis mé pra quem é amistosis quis leo. Não sou faixa
-                  preta cumpadi, sou preto inteiris, inteiris. Interagi no mé,
-                  cursus quis, vehicula ac nisi.
-                </Typography>
-              </Grid>
+    <Paper className={classes.root}>
+      <Grid container direction="column" spacing={6}>
+        <Grid item>
+          <Grid container spacing={6} alignItems="center">
+            <Grid item>
+              <img src={HomeSearchIcon} alt="" />
             </Grid>
-          </Grid>
-          <Grid item>
-            <Grid container spacing={6} alignItems="center">
-              <Grid item xs>
-                <Typography variant="h5" component="h3" align="justify">
-                  Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é
-                  um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
-                  In elementis mé pra quem é amistosis quis leo. Não sou faixa
-                  preta cumpadi, sou preto inteiris, inteiris. Interagi no mé,
-                  cursus quis, vehicula ac nisi.
+            <Grid item xs>
+              <Typography variant="h5" component="h3" align="justify">
+                Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é
+                um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
+                In elementis mé pra quem é amistosis quis leo. Não sou faixa
+                preta cumpadi, sou preto inteiris, inteiris. Interagi no mé,
+                cursus quis, vehicula ac nisi.
                 </Typography>
-              </Grid>
-              <Grid item>
-                <img src={HomePersonIcon} alt="" />
-              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Paper>
-    </div>
+        <Grid item>
+          <Grid container spacing={6} alignItems="center">
+            <Grid item xs>
+              <Typography variant="h5" component="h3" align="justify">
+                Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é
+                um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
+                In elementis mé pra quem é amistosis quis leo. Não sou faixa
+                preta cumpadi, sou preto inteiris, inteiris. Interagi no mé,
+                cursus quis, vehicula ac nisi.
+                </Typography>
+            </Grid>
+            <Grid item>
+              <img src={HomePersonIcon} alt="" />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 }

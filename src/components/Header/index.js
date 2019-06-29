@@ -20,7 +20,7 @@ export default function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="fixed" color="default">
         <Toolbar>
           <Grid container justify="space-between" alignItems="center">
             <Grid item>
