@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
 import { Person as PersonIcon, Search as SearchIcon } from "@material-ui/icons";
 
+import { Link } from 'react-router-dom'
+
 const useStyles = makeStyles({
   root: {
     flexGrow: 1
@@ -13,10 +15,6 @@ export default function Header(props) {
   const { title } = props;
 
   const classes = useStyles();
-
-  const log = name => () => {
-    console.log(name);
-  };
 
   return (
     <div className={classes.root}>
@@ -29,7 +27,7 @@ export default function Header(props) {
               </Typography>
             </Grid>
             <Grid item>
-              <Button onClick={log("areaPesquisador")}>
+              <Button component={Link} to='/area-do-pesquisador'>
                 <PersonIcon />
                 Área do Pesquisador
               </Button>
