@@ -1,46 +1,23 @@
-import React from "react";
+import React from 'react'
+import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
-import { Person as PersonIcon, Search as SearchIcon } from "@material-ui/icons";
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1
+const useStyle = makeStyles(theme => ({
+  grid: {
+    padding: theme.spacing(10, 10),
+    margin: theme.spacing(3, 2),
+    color: '#fff',
+    textShadow: '2px 2px 10px #333'
   }
-});
+}))
 
-export default function Header(props) {
-  const { title } = props;
-
-  const classes = useStyles();
-
-  const log = name => () => {
-    console.log(name);
-  };
-
+export default function Header() {
+  const classes = useStyle()
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="default">
-        <Toolbar>
-          <Grid container justify="space-between" alignItems="center">
-            <Grid item>
-              <Typography variant="h6" color="inherit">
-                {title}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Button onClick={log("areaPesquisador")}>
-                <PersonIcon />
-                Área do Pesquisador
-              </Button>
-              <Button onClick={() => document.location.href = '#search'}>
-                <SearchIcon />
-                Buscar Pesquisador
-              </Button>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </div >
-  );
+      <Grid container className={classes.grid}>
+        <Typography variant='h1'>Cadastro de Pesquisadores</Typography>
+      </Grid>
+    </div>
+  )
 }
