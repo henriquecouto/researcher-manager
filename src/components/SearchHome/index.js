@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Paper, Typography, Grid, InputBase, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Search as SearchIcon } from "@material-ui/icons";
+import { Redirect } from 'react-router-dom';
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -36,31 +37,28 @@ const useStyle = makeStyles(theme => ({
   }
 }))
 
-export default function Search() {
+export default function Search(props) {
   const classes = useStyle()
-
-  const [search, setSearch] = useState("");
+  const {search, handleSearch} = props;
+ 
   const [error, setError] = useState({ active: false, type: '' });
+  const [redirect, setRedirect ] = useState(false);
 
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  }
+
 
   const makeSearch = (e) => {
     e.preventDefault();
     if (search === "") {
       setError({ active: true, type: 'Você precisa inserir algo' });
-    } else if (search === "Henrique") {
-      setError({ active: true, type: `Pesquisador ${search} não existe` })
     } else {
       setError({ active: false });
-      alert(`Buscando pesquisador: ${search}`);
-    }
+      setRedirect(true);
+    } 
   }
 
   return (
     <Paper className={classes.root}>
-
+      {redirect && <Redirect to="buscar-pesquisador"/> }
       <Grid container direction="column" spacing={6} alignItems="center">
         <Grid item>
           <Grid container spacing={6} alignItems="center" justify="center">
@@ -95,7 +93,7 @@ export default function Search() {
                 placeholder="Nome, Área de conhecimento ou Titulação"
                 inputProps={{ 'aria-label': 'Nome, Área de conhecimento ou Titulação' }}
                 value={search}
-                onChange={handleChange}
+                onChange={handleSearch}
               />
             </Paper>
           </form>

@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 
 import AppBar from "../../components/AppBar";
 import Description from "../../components/Description";
-import Search from "../../components/Search";
+import Search from "../../components/SearchHome";
 import Header from "../../components/Header";
 
 import background from '../../assets/header.jpeg';
@@ -21,9 +21,9 @@ const useStyle = makeStyles(theme => ({
   },
 }));
 
-export default function Home() {
+export default function Home(props) {
   const classes = useStyle();
-
+  const {search, handleSearch} = props;
   return (
     <>
       <AppBar title="Cadastro de Pesquisadores" />
@@ -35,7 +35,7 @@ export default function Home() {
           <Description />
         </Grid>
         <Grid item id='search'>
-          <Search />
+          <Search search = {search} handleSearch = {handleSearch} />
         </Grid>
       </Grid>
     </>

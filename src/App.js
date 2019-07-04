@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from '@material-ui/styles';
 
 import Home from "./screens/Home";
 import ResearchArea from './screens/ResearchArea';
+import Search from './screens/Search'
 
 const theme = createMuiTheme({
   palette: {
@@ -15,15 +16,24 @@ const theme = createMuiTheme({
       main: '#4f5d73'
     },
     error: { light: '#ef9a9a', main: '#f44336' },
+
   }
 })
 
 export default function App() {
+
+  const [search, setSearch] = useState("");
+  
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  }
+  
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' render={() => <Home search={search} handleSearch = {handleSearch}/> }/> 
         <Route path='/area-do-pesquisador' component={ResearchArea} />
+  <Route path='/buscar-pesquisador' render = {() => <Search search={search} />}/>
       </Router>
     </ThemeProvider>
   );
