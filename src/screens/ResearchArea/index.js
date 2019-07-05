@@ -1,5 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export default function ResearchArea() {
-  return (<h1>Tela Área do Pesquisador</h1>);
+import AppBar from '../../components/AppBar'
+import { Paper } from '@material-ui/core';
+
+export default function ResearchArea(props) {
+  const { setTitle } = props
+  useEffect(() => {
+    setTitle('Área do Pesquisador')
+  })
+  return (
+    <>
+      <Paper></Paper>
+    </>
+  );
 };

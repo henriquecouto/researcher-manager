@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 
@@ -23,10 +23,14 @@ const useStyle = makeStyles(theme => ({
 
 export default function Home(props) {
   const classes = useStyle();
-  const {search, handleSearch} = props;
+  const { search, handleSearch, setTitle } = props;
+
+  useEffect(() => {
+    setTitle('Cadastro de Pesquisadores')
+  })
+
   return (
     <>
-      <AppBar title="Cadastro de Pesquisadores" />
       <Grid container className={classes.header} justify='center'>
         <Header />
       </Grid>
@@ -35,7 +39,7 @@ export default function Home(props) {
           <Description />
         </Grid>
         <Grid item id='search'>
-          <Search search = {search} handleSearch = {handleSearch} />
+          <Search search={search} handleSearch={handleSearch} />
         </Grid>
       </Grid>
     </>

@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
-import { Person as PersonIcon, Search as SearchIcon } from "@material-ui/icons";
-
+import { AppBar, Toolbar, Typography, Button, Grid, IconButton } from "@material-ui/core";
+import { Person as PersonIcon, Search as SearchIcon, ArrowBack } from "@material-ui/icons";
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -12,7 +11,7 @@ const useStyles = makeStyles({
 });
 
 export default function Header(props) {
-  const { title } = props;
+  const { title, children } = props;
 
   const classes = useStyles();
 
@@ -22,16 +21,24 @@ export default function Header(props) {
         <Toolbar>
           <Grid container justify="space-between" alignItems="center">
             <Grid item>
-              <Typography variant="h6" color="inherit">
-                {title}
-              </Typography>
+              <Grid container alignItems='center'>
+                {
+                  window.location.pathname !== '/' &&
+                  <IconButton component={Link} to='/'>
+                    <ArrowBack />
+                  </IconButton>
+                }
+                <Typography variant="h6" color="inherit">
+                  {title}
+                </Typography>
+              </Grid>
             </Grid>
             <Grid item>
               <Button component={Link} to='/area-do-pesquisador'>
                 <PersonIcon />
                 Área do Pesquisador
               </Button>
-              <Button onClick={() => document.location.href = '#search'}>
+              <Button component={Link} to='/'>
                 <SearchIcon />
                 Buscar Pesquisador
               </Button>
@@ -39,6 +46,7 @@ export default function Header(props) {
           </Grid>
         </Toolbar>
       </AppBar>
-    </div >
+      {children}
+    </div>
   );
 }
