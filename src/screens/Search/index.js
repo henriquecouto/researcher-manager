@@ -9,8 +9,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import clsx from 'clsx';
 import Input from '@material-ui/core/Input';
+import ResultCard from '../../components/ResultCard';
 
-import HomePersonIcon from '../../assets/HomePersonIcon.png'
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -21,16 +21,6 @@ const useStyle = makeStyles(theme => ({
     padding: theme.spacing(2),
     margin: 50,
     maxWidth: 500,
-  },
-  image: {
-    width: 128,
-    height: 128,
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
   },
 
   formControl: {
@@ -58,6 +48,13 @@ const names = [
   'Universidade',
 ];
 
+const results = [
+  {nome: "Rendrikson Oliveira", titulacao: "Doutor", area:"Ti", universidade: "UFAL"},
+  {nome: "henrique Couto", titulacao: "Doutor", area: "TI", universidade: "UFAL"},
+  {nome: "Gabriel Roberto", titulacao: "Doutor", area: "TI", universidade: "UFAL"}
+];
+
+
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
@@ -75,6 +72,8 @@ export default function Search(props) {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
+
+
   function handleChange(event) {
     setPersonName(event.target.value);
   }
@@ -84,13 +83,14 @@ export default function Search(props) {
   })
 
   return (
-    <div className={classes.root}>
-      <Grid item xs={4} sm container>
+    <>
+    <Grid className={classes.root} container>
+      <Grid item xs={4} sm >
         <Typography style={{ margin: 50 }}>
           1000 Pesquisadores encotrados
           </Typography>
       </Grid>
-      <Grid item xs={4} sm container > {/*PROCURAR UMA FORMA DE DEIXAR O SELECT A DIREITA*/}
+      <Grid item xs={4} sm > {/*PROCURAR UMA FORMA DE DEIXAR O SELECT A DIREITA*/}
         <FormControl className={clsx(classes.formControl, classes.noLabel)}>
           <Select
             multiple
@@ -118,33 +118,10 @@ export default function Search(props) {
           </Select>
         </FormControl>
       </Grid>
-      <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="Foto" src={HomePersonIcon} />
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={6} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="h5" color="textSecondary">
-                  Nome do Pesquisador
-                        </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Área de conhecimento
-                        </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Titulação
-                        </Typography>
-                <Typography variant="body2">
-                  Universidade
-                        </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Paper>
-    </div>
+    </Grid>
+    <Grid container>
+    {results.map((value, index) => <ResultCard value={value}/> )};
+    </Grid>
+    </>
   )
 }
