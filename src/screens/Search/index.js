@@ -17,11 +17,6 @@ const useStyle = makeStyles(theme => ({
     flexGrow: 1,
     marginTop: 100,
   },
-  paper: {
-    padding: theme.spacing(2),
-    margin: 50,
-    maxWidth: 500,
-  },
 
   formControl: {
     margin: theme.spacing(1),
@@ -51,7 +46,8 @@ const names = [
 const results = [
   {nome: "Rendrikson Oliveira", titulacao: "Doutor", area:"Ti", universidade: "UFAL"},
   {nome: "henrique Couto", titulacao: "Doutor", area: "TI", universidade: "UFAL"},
-  {nome: "Gabriel Roberto", titulacao: "Doutor", area: "TI", universidade: "UFAL"}
+  {nome: "Gabriel Roberto", titulacao: "Doutor", area: "TI", universidade: "UFAL"},
+  {nome: "Carlos", titulacao: "Mestre", area: "Engenharia", universidade: "UFPE"},
 ];
 
 
@@ -86,11 +82,11 @@ export default function Search(props) {
     <>
     <Grid className={classes.root} container>
       <Grid item xs={4} sm >
-        <Typography style={{ margin: 50 }}>
+        <Typography style={{ margin: 10 }}>
           1000 Pesquisadores encotrados
           </Typography>
       </Grid>
-      <Grid item xs={4} sm > {/*PROCURAR UMA FORMA DE DEIXAR O SELECT A DIREITA*/}
+      <Grid item >
         <FormControl className={clsx(classes.formControl, classes.noLabel)}>
           <Select
             multiple
@@ -120,7 +116,7 @@ export default function Search(props) {
       </Grid>
     </Grid>
     <Grid container>
-    {results.map((value, index) => <ResultCard value={value}/> )};
+    {results.map((value, index) => <ResultCard value={value}/> )}
     </Grid>
     </>
   )

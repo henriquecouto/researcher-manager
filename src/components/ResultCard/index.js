@@ -11,8 +11,9 @@ const useStyle = makeStyles(theme => ({
     },
     paper: {
       padding: theme.spacing(2),
-      margin: 50,
-      maxWidth: 500,
+      margin: 30,
+      maxWidth: 1000,
+      minWidth: 500,
     },
     image: {
       width: 128,
@@ -24,6 +25,7 @@ const useStyle = makeStyles(theme => ({
       maxWidth: '100%',
       maxHeight: '100%',
     },
+    
     }))
 
 export default function ResultCard(props){
@@ -31,31 +33,31 @@ export default function ResultCard(props){
     const {nome, area, titulacao, universidade} = props.value;
     return(
         <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="Foto" src={HomePersonIcon} />
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={6} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="h5" color="textSecondary">
-                  {nome}
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  {area}
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  {titulacao}
-                </Typography>
-                <Typography variant="body2">
-                  {universidade}
-                </Typography>
+          <Grid container spacing={2}>
+            <Grid item>
+              <ButtonBase className={classes.image}>
+                <img className={classes.img} alt="Foto" src={HomePersonIcon} />
+              </ButtonBase>
+            </Grid>
+            <Grid item >
+              <Grid item direction="column">
+                <Grid item >
+                  <Typography gutterBottom variant="h5" color="textSecondary">
+                    {nome}
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    {area}
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    {titulacao}
+                  </Typography>
+                  <Typography variant="body2">
+                    {universidade}
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Paper>
-    );
+        </Paper>
+    )
 }
