@@ -12,6 +12,7 @@ import {
 
 import { makeStyles } from '@material-ui/core/styles';
 import PersonalInfo from './PersonalInfo';
+import Abstract from './Abstract';
 
 export default function ResearchArea(props) {
   const { setTitle } = props;
@@ -24,7 +25,7 @@ export default function ResearchArea(props) {
     <Container>
       <Grid container direction="column" spacing={8}>
         <PersonalInfo />
-        <Paper elevation={4}>Resumo de Atividades Profissionais</Paper>
+        <Abstract/>
         <Paper elevation={4}>Endereço Profissional</Paper>
       </Grid>
     </Container>
