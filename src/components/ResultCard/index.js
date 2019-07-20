@@ -1,63 +1,50 @@
 import React from 'react';
 import { Paper, Grid, ButtonBase, Typography } from '@material-ui/core';
 
-import HomePersonIcon from '../../assets/HomePersonIcon.png'
+import HomePersonIcon from '../../assets/HomePersonIcon.png';
 import { makeStyles } from '@material-ui/styles';
 
 const useStyle = makeStyles(theme => ({
+  root: {
+    minWidth: 400,
+    padding: theme.spacing(2),
+    cursor: 'pointer',
+  },
+  [theme.breakpoints.down('sm')]: {
     root: {
-      flexGrow: 1,
-      marginTop: 100,
+      minWidth: 350,
     },
-    paper: {
-      padding: theme.spacing(2),
-      margin: 30,
-      maxWidth: 1000,
-      minWidth: 500,
-    },
-    image: {
-      width: 128,
-      height: 128,
-    },
-    img: {
-      margin: 'auto',
-      display: 'block',
-      maxWidth: '100%',
-      maxHeight: '100%',
-    },
-    
-    }))
+  },
+}));
 
-export default function ResultCard(props){
-    const classes = useStyle();
-    const {nome, area, titulacao, universidade} = props.value;
-    return(
-        <Paper className={classes.paper}>
-          <Grid container spacing={2}>
+export default function ResultCard(props) {
+  const classes = useStyle();
+
+  const openResearcher = e => {
+    console.log('Abrindo pesquisador');
+  };
+
+  const { name, area, titration, university } = props.value;
+
+  return (
+    <Paper onClick={openResearcher} className={classes.root} elevation={4}>
+      <Grid container spacing={2}>
+        <Grid item>
+          <img src={HomePersonIcon} alt="Avatar" />
+        </Grid>
+        <Grid item>
+          <Grid container direction="column">
             <Grid item>
-              <ButtonBase className={classes.image}>
-                <img className={classes.img} alt="Foto" src={HomePersonIcon} />
-              </ButtonBase>
+              <Typography variant="h6" style={{ overflow: 'hidden' }}>
+                {name}
+              </Typography>
             </Grid>
-            <Grid item >
-              <Grid item direction="column">
-                <Grid item >
-                  <Typography gutterBottom variant="h5" color="textSecondary">
-                    {nome}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    {area}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    {titulacao}
-                  </Typography>
-                  <Typography variant="body2">
-                    {universidade}
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
+            <Grid item>{area}</Grid>
+            <Grid item>{titration}</Grid>
+            <Grid item>{university}</Grid>
           </Grid>
-        </Paper>
-    )
+        </Grid>
+      </Grid>
+    </Paper>
+  );
 }
