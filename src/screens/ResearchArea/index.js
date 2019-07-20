@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 import {
   Paper,
@@ -7,26 +7,27 @@ import {
   Typography,
   TextField,
   Avatar,
-  Button,
-} from '@material-ui/core';
+  Button
+} from "@material-ui/core";
 
-import { makeStyles } from '@material-ui/core/styles';
-import PersonalInfo from './PersonalInfo';
-import Abstract from './Abstract';
+import { makeStyles } from "@material-ui/core/styles";
+import PersonalInfo from "./PersonalInfo";
+import Abstract from "./Abstract";
+import ProfessionalAdress from "./ProfessionalAdress";
 
 export default function ResearchArea(props) {
   const { setTitle } = props;
 
   useEffect(() => {
-    setTitle('Área do Pesquisador');
+    setTitle("Área do Pesquisador");
   }, [setTitle]);
 
   return (
     <Container>
       <Grid container direction="column" spacing={8}>
         <PersonalInfo />
-        <Abstract/>
-        <Paper elevation={4}>Endereço Profissional</Paper>
+        <Abstract />
+        <ProfessionalAdress />
       </Grid>
     </Container>
   );
